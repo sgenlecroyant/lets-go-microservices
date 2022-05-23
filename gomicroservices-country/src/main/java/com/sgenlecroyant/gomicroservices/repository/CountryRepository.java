@@ -8,6 +8,6 @@ import com.sgenlecroyant.gomicroservices.entity.Country;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long>{
 
-	Country findByCode(String code);
+	public Country findByCode(String code);
 
 }

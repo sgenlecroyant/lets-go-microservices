@@ -7,6 +7,8 @@ spring:
   cloud:
     config:
       enabled: false
+  datasource:
+    url: jdbc:h2:mem:test-me-continent
     
 # server config
 server:

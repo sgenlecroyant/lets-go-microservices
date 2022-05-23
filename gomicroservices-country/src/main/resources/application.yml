@@ -14,6 +14,9 @@ spring:
   profiles:
     active:
     - prod
+  datasource:
+    url: jdbc:h2:mem:test-me-country
+    
 eureka:
   client:
     enabled: false
@@ -21,5 +24,6 @@ eureka:
 country-service:
   code: us
   name: United States
+  
   
  

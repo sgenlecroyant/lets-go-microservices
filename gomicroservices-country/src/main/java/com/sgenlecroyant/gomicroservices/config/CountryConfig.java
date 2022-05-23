@@ -1,5 +1,9 @@
 package com.sgenlecroyant.gomicroservices.config;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +12,9 @@ import com.sgenlecroyant.gomicroservices.entity.Country;
 @Configuration
 @ConfigurationProperties(prefix = "country-service")
 public class CountryConfig {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String code;
 	private String name;
 	private String locatedIn;

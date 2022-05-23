@@ -19,7 +19,7 @@ public class CountryController {
 	@Autowired
 	private CountryRepository countryRepository;
 	
-	@GetMapping(value = "/country}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/country", produces = MediaType.APPLICATION_JSON_VALUE)
 	private Country getCountry() {
 //		Country country = new Country("bi", "Burundi");
 		Country country = config.getCountryConfigProps();
