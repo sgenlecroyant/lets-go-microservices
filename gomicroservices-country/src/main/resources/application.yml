@@ -4,12 +4,17 @@ spring:
     
   cloud:
     config:
-      enabled: false
+      enabled: true
+      uri:
+      - http://localhost:8888
+  config:
+    import:
+    - optional:configserver:http://localhost:8888/
 eureka:
   client:
     enabled: false
     
-country:
-  service:
-    code: us
-    name: United States
+country-service:
+  code: us
+  name: United States
+ 

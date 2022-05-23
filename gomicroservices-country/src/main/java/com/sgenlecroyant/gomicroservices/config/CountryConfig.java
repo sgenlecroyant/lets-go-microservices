@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import com.sgenlecroyant.gomicroservices.entity.Country;
 
 @Configuration
-@ConfigurationProperties(prefix = "country.service")
+@ConfigurationProperties(prefix = "country-service")
 public class CountryConfig {
 	
 	private String code;
