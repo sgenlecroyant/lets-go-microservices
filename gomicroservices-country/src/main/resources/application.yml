@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: country-service
+    
+  cloud:
+    config:
+      enabled: false
+eureka:
+  client:
+    enabled: false
+    
+country:
+  service:
+    code: us
+    name: United States
