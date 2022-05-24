@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.sgenlecroyant.gomicroservices.httpresponse.ContinentResponse;
 
-@FeignClient(value = "continent-service", url = "http://localhost:8001")
+@FeignClient(value = "continent-service")
 public interface ContinentProxy {
 	
 	@GetMapping(value = "/continents/{code}")

@@ -8,13 +8,12 @@ public class ContinentResponse {
 	private String code;
 	private String name;
 	private String area;
-	
+	private String environment;
 	public ContinentResponse() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public ContinentResponse(Country country, String code, String name, String area) {
-		super();
 		this.country = country;
 		this.code = code;
 		this.name = name;
@@ -51,6 +50,13 @@ public class ContinentResponse {
 
 	public void setArea(String area) {
 		this.area = area;
+	}
+	
+	public String getEnvironment() {
+		return environment;
+	}
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
 	@Override

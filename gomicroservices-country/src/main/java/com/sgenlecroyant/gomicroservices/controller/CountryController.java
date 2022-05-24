@@ -25,7 +25,7 @@ public class CountryController {
 	@Autowired
 	private ContinentProxy continentProxy;
 	
-	private final String url = "http://localhost:8001/continents/{code}";
+	private final String url = "http://CONTINENT-SERVICE/continents/{code}";
 	private ContinentResponse continentResponse;
 	
 	@Autowired
@@ -41,7 +41,7 @@ public class CountryController {
 		return country;
 	}
 	
-	@GetMapping(value = "/countries/{code}")
+	@GetMapping(value = "/countries/sec/{code}")
 	public ContinentResponse getCountryByCode(@PathVariable String code) {
 		Country country = this.countryRepository.findByCode(code);
 		Map<String, String> uriVariables = new HashMap<>();
@@ -50,16 +50,16 @@ public class CountryController {
 		ContinentResponse continent = responseEntity.getBody();
 		
 		this.continentResponse = new ContinentResponse(country, continent.getCode(), continent.getName(), continent.getArea());
+//		this.continentResponse.setEnvironment(this.en)
 		return continentResponse;
 	}
 	
-	@GetMapping(value = "/countries-feign/{code}")
+	@GetMapping(value = "/countries-feign/sec/{code}")
 	public ContinentResponse getCountryByCodeFeign(@PathVariable String code) {
 		Country country = this.countryRepository.findByCode(code);
 		
 		Map<String, String> uriVariables = new HashMap<>();
 		uriVariables.put(code, country.getLocatedIn());
-		
 		ContinentResponse continentResponse = this.continentProxy.getContinentResponse(country.getLocatedIn());
 		System.out.println("Before: "+continentResponse);
 		continentResponse.setCountry(country);
