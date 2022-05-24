@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.sgenlecroyant.gomicroservices.entity.Country;
 import com.sgenlecroyant.gomicroservices.repository.CountryRepository;
@@ -29,6 +31,11 @@ public class GomicroservicesCountryApplication implements CommandLineRunner {
 
 		this.countryRepository.saveAll(List.of(burundi, rwanda, france));
 
+	}
+	
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
 	}
 
 }

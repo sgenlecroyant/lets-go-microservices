@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgenlecroyant.gomicroservices.entity.Continent;
@@ -16,7 +17,7 @@ public class ContinentController {
 	private ContinentRepository continentRepository;
 	
 	@GetMapping(value = "/continents/{code}")
-	public Continent getContinentByCode(String code) {
+	public Continent getContinentByCode(@PathVariable String code) {
 		Optional<Continent> fetchedContinent = this.continentRepository.findByCode(code);
 //		Optional<Continent> fetchedContinent = this.continentRepository.findById(id);
 		// assuming it was found

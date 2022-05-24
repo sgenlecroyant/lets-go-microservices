@@ -15,9 +15,13 @@ public class Continent {
 	private Long id;
 	private String code;
 	private String name;
-	private float area;
+	private String area;
 	
-	public Continent(String code, String name, float area) {
+	public Continent() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Continent(String code, String name, String area) {
 		this.code = code;
 		this.name = name;
 		this.area = area;
@@ -47,11 +51,11 @@ public class Continent {
 		this.name = name;
 	}
 
-	public float getArea() {
+	public String getArea() {
 		return area;
 	}
 
-	public void setArea(float area) {
+	public void setArea(String area) {
 		this.area = area;
 	}
 	
