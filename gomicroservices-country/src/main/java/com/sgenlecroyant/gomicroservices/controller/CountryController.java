@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.sgenlecroyant.gomicroservices.config.CountryConfig;
 import com.sgenlecroyant.gomicroservices.entity.Country;
+import com.sgenlecroyant.gomicroservices.httpcall.ContinentProxy;
 import com.sgenlecroyant.gomicroservices.httpresponse.ContinentResponse;
 import com.sgenlecroyant.gomicroservices.repository.CountryRepository;
 
@@ -20,6 +21,9 @@ import com.sgenlecroyant.gomicroservices.repository.CountryRepository;
 public class CountryController {
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private ContinentProxy continentProxy;
 	
 	private final String url = "http://localhost:8001/continents/{code}";
 	private ContinentResponse continentResponse;
@@ -44,7 +48,22 @@ public class CountryController {
 		uriVariables.put("code", country.getLocatedIn());
 		ResponseEntity<ContinentResponse> responseEntity = this.restTemplate.getForEntity(url, ContinentResponse.class, uriVariables);
 		ContinentResponse continent = responseEntity.getBody();
+		
 		this.continentResponse = new ContinentResponse(country, continent.getCode(), continent.getName(), continent.getArea());
+		return continentResponse;
+	}
+	
+	@GetMapping(value = "/countries-feign/{code}")
+	public ContinentResponse getCountryByCodeFeign(@PathVariable String code) {
+		Country country = this.countryRepository.findByCode(code);
+		
+		Map<String, String> uriVariables = new HashMap<>();
+		uriVariables.put(code, country.getLocatedIn());
+		
+		ContinentResponse continentResponse = this.continentProxy.getContinentResponse(country.getLocatedIn());
+		System.out.println("Before: "+continentResponse);
+		continentResponse.setCountry(country);
+		System.out.println("After: "+continentResponse);
 		return continentResponse;
 	}
 	

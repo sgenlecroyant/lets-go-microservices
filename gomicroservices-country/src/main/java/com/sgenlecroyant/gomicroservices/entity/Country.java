@@ -49,5 +49,12 @@ public class Country {
 	public void setLocatedIn(String locatedIn) {
 		this.locatedIn = locatedIn;
 	}
+
+	@Override
+	public String toString() {
+		return "Country [id=" + id + ", code=" + code + ", name=" + name + ", locatedIn=" + locatedIn + "]";
+	}
+	
+	
 	
 }

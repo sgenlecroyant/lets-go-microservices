@@ -52,7 +52,10 @@ public class ContinentResponse {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "ContinentResponse [country=" + country + ", code=" + code + ", name=" + name + ", area=" + area + "]";
+	}
+	
 }
