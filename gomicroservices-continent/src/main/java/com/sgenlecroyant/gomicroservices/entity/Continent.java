@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity(name = "continents")
 @Table(name = "continents")
@@ -16,6 +17,8 @@ public class Continent {
 	private String code;
 	private String name;
 	private String area;
+	@Transient
+	private String environment;
 	
 	public Continent() {
 		// TODO Auto-generated constructor stub
@@ -59,6 +62,13 @@ public class Continent {
 		this.area = area;
 	}
 	
+	public String getEnvironment() {
+		return environment;
+	}
+	
+	public void setEnvironment(String environment) {
+		this.environment = environment;
+	}
 	
 	
 	

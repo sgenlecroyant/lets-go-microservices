@@ -6,9 +6,12 @@ spring:
 # cloud config 
   cloud:
     config:
-      enabled: false
+      enabled: true
   datasource:
     url: jdbc:h2:mem:test-me-continent
+  config:
+    import:
+    - optional:configserver:http://localhost:8888/
     
 # server config
 server:
@@ -17,4 +20,9 @@ server:
 # Eureka Client config
 eureka:
   client:
-    enabled: false
+    enabled: true
+    
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default: http://localhost:8761/eureka
