@@ -46,8 +46,8 @@ public class MSConcept {
 	}
 
 	@GetMapping(value = "/random-name")
-	@Retry(name = "retry-case", fallbackMethod = "handleRetryMechanism")
-//	@CircuitBreaker(name = "circuitbreaker-case", fallbackMethod = "handleRetryMechanism")
+//	@Retry(name = "retry-case", fallbackMethod = "handleRetryMechanism")
+	@CircuitBreaker(name = "circuitbreaker-case", fallbackMethod = "handleRetryMechanism")
 	public String getSomeName() throws RestClientException, URISyntaxException {
 //		String randName = null;
 //		int i = 0;

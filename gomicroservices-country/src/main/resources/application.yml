@@ -42,7 +42,15 @@ resilience4j:
         enable-randomized-wait: true
         exponential-max-wait-duration: 10s
         
-
+  circuitbreaker:
+    instances:
+      circuitbreaker-case:
+        automatic-transition-from-open-to-half-open-enabled: true
+        enable-exponential-backoff: true
+        failure-rate-threshold: 50
+        max-wait-duration-in-half-open-state: 15
+        register-health-indicator: true
+        permitted-number-of-calls-in-half-open-state: 5
         
         
         
