@@ -28,5 +28,6 @@ eureka:
 country-service:
   code: us
   name: United States
-  
+server:
+  port: 9090
  

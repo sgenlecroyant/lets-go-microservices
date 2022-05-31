@@ -16,13 +16,14 @@ public class ApiGatewayConfig {
 				.route((p) -> p.path("/get")
 						
 						.filters(f -> {
+							System.out.println("path /get: ...");
 							return f.addResponseHeader("responseHeader", "Franck Sgen");
 							
 						})
 						
 						.uri("http://httpbin.org:80"))
 				
-				.route((p) -> p.path("/countries/**")
+				.route((p) -> p.path("/countries-feign/**")
 						.uri("lb://country-service"))
 				
 				.build();

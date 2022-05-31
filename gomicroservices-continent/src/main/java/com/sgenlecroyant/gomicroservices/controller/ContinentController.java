@@ -25,7 +25,7 @@ public class ContinentController {
 	@Autowired
 	private Environment environment;
 	
-	@GetMapping(value = "/continents/{code}")
+	@GetMapping(value = "/continents-feign/{code}")
 	public Continent getContinentByCode(@PathVariable String code, HttpServletRequest request) {
 			Optional<Continent> fetchedContinent = this.continentRepository.findByCode(code);
 //			Optional<Continent> fetchedContinent = this.continentRepository.findById(id);

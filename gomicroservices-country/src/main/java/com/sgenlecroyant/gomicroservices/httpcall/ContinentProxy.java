@@ -9,7 +9,11 @@ import com.sgenlecroyant.gomicroservices.httpresponse.ContinentResponse;
 @FeignClient(value = "continent-service")
 public interface ContinentProxy {
 	
-	@GetMapping(value = "/continents/{code}")
+	@GetMapping(value = "/continents-feign/{code}")
 	public ContinentResponse getContinentResponse(@PathVariable String code);
+
+	
+	@GetMapping(value = "/continents-feign/{code}")
+	public ContinentResponse getContinentResponseFeign(@PathVariable String code);
 
 }
