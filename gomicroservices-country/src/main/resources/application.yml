@@ -31,3 +31,24 @@ country-service:
 server:
   port: 9090
  
+ 
+resilience4j:
+  retry:
+    instances:
+      retry-case:
+        max-attempts: 5
+        wait-duration: 10s
+        enable-exponential-backoff: true
+        enable-randomized-wait: true
+        exponential-max-wait-duration: 10s
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
